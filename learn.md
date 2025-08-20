@@ -42,7 +42,14 @@ getattr(a, 'x') #返回nihao`
 
 #### 负数
 step = -1时，start在后，stop在前时才能切片  
-`a[-1:-3:-1]`    # [9, 8]  
+`a[-1:-3:-1]`    # [9, 8]
 
 
-
+# clip_grad_norm_
+![alt text](image-1.png)
+`...  `
+`loss = crit(...)  `
+`optimizer.zero_grad()  `
+`loss.backward()  `
+`torch.nn.utils.clip_grad_norm_(parameters=model.parameters(), max_norm=10, norm_type=2)  `
+`optimizer.step()  `
