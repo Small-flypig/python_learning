@@ -5,6 +5,7 @@
 `print(result)  # True`  
 ![alt text](image.png)
 ## getattr() 返回对象属性值
+![alt text](image-3.png)
 似乎只能对class中元素使用，返回值  
 `getattr(a, 'x')`  # 获取属性 x 值  
 `getattr(a, 'y', 'None')`  # 获取属性 y 值不存在，但设置了默认值,返回None  
