@@ -47,9 +47,16 @@ step = -1时，start在后，stop在前时才能切片
 
 # clip_grad_norm_
 ![alt text](image-1.png)
-`...  `
-`loss = crit(...)  `
-`optimizer.zero_grad()  `
-`loss.backward()  `
-`torch.nn.utils.clip_grad_norm_(parameters=model.parameters(), max_norm=10, norm_type=2)  `
-`optimizer.step()  `
+`...`  
+`loss = crit(...)`  
+`optimizer.zero_grad()`  
+`loss.backward()`  
+`torch.nn.utils.clip_grad_norm_(parameters=model.parameters(), max_norm=10, norm_type=2)`  
+`optimizer.step()`  
+
+# distributedsampler(多卡训练使用，避免数据顺序读取)
+
+# os.getcwd() 返回当前的工作路径
+# logging.getLogger(参数)
+![alt text](image-2.png)
+
