@@ -61,3 +61,26 @@ step = -1时，start在后，stop在前时才能切片
 # logging.getLogger(参数)
 ![alt text](image-2.png)
 
+# .modules()
+![alt text](image-5.png)
+![alt text](image-4.png)
+
+# filter lamabda
+这是代码示例，感觉会比较常用
+`trainable_params += [{'params': filter(lambda x: x.requires_grad,`  
+                                       `model.backbone.parameters()),`  
+                      `'lr': cfg.BACKBONE.LAYERS_LR * cfg.TRAIN.BASE_LR}]`  
+![alt text](image-6.png)
+filter(函数，序列)函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表，python返回迭代器
+![alt text](image-7.png)
+
+# 优化器构建，感觉也会是公式化的
+`optimizer = torch.optim.SGD(trainable_params,`  
+                            `momentum=cfg.TRAIN.MOMENTUM,`  
+                                                                                `weight_decay=cfg.TRAIN.WEIGHT_DECAY)`  
+![alt text](image-8.png)
+
+# 不懂的语法 列表+字典+
+![alt text](image-9.png)
+![alt text](image-10.png)
+https://blog.csdn.net/ljh18885466426/article/details/119357723
