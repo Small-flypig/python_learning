@@ -6,7 +6,7 @@
   - [getattr() 返回对象属性值](#getattr-返回对象属性值)
   - [迭代器](#迭代器)
     - [`__next__()` 返回下一个元素](#__next__-返回下一个元素)
-  - [切片\[ start : stop : step \]](#切片-start--stop--step-)
+  - [切片\[ start : stop : step \] 区别torch optimizer.step()更新](#切片-start--stop--step--区别torch-optimizerstep更新)
     - [省略step](#省略step)
       - [负数](#负数)
   - [clip\_grad\_norm\_](#clip_grad_norm_)
@@ -58,7 +58,7 @@ getattr(a, 'x') #返回nihao`
     print(i)`  
 `for i in iter(string):  
     print(i)`  
-## 切片[ start : stop : step ]
+## 切片[ start : stop : step ] 区别torch optimizer.step()更新
 示例
 `lst = [10,20,30,40,50,60,70,80]`  
 #切片为：start=2 , stop=6 , step=1  
