@@ -84,3 +84,11 @@ filter(函数，序列)函数用于过滤序列，过滤掉不符合条件的元
 ![alt text](image-9.png)
 ![alt text](image-10.png)
 https://blog.csdn.net/ljh18885466426/article/details/119357723
+
+# enumerate(iteration, start)
+start默认是0
+![alt text](image-11.png)
+
+# /  //  %
+![alt text](image-12.png)
+
