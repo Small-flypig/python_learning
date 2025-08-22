@@ -1,4 +1,35 @@
 # 零散知识(学习自代码)
+
+
+- [零散知识(学习自代码)](#零散知识学习自代码)
+  - [isinstance() 类型检查 利器](#isinstance-类型检查-利器)
+  - [getattr() 返回对象属性值](#getattr-返回对象属性值)
+  - [迭代器](#迭代器)
+    - [`__next__()` 返回下一个元素](#__next__-返回下一个元素)
+  - [切片\[ start : stop : step \]](#切片-start--stop--step-)
+    - [省略step](#省略step)
+      - [负数](#负数)
+  - [clip\_grad\_norm\_](#clip_grad_norm_)
+  - [distributedsampler(多卡训练使用，避免数据顺序读取)](#distributedsampler多卡训练使用避免数据顺序读取)
+  - [os.getcwd() 返回当前的工作路径](#osgetcwd-返回当前的工作路径)
+  - [logging.getLogger(参数)](#logginggetlogger参数)
+  - [.modules()](#modules)
+  - [filter lamabda](#filter-lamabda)
+  - [优化器构建，感觉也会是公式化的](#优化器构建感觉也会是公式化的)
+  - [不懂的语法 列表+字典+](#不懂的语法-列表字典)
+  - [enumerate(iteration, start)](#enumerateiteration-start)
+  - [/  //  %](#----)
+  - [state\_dict](#state_dict)
+  - [PyTorch内置学习率调度器(lr\_scheduler)](#pytorch内置学习率调度器lr_scheduler)
+  - ['string{}'.format()](#stringformat)
+  - [tb\_writer.add\_scalar()](#tb_writeradd_scalar)
+    - [1.创建TensorBoard写入器](#1创建tensorboard写入器)
+  - [nn.Upsample()](#nnupsample)
+  - [torch.nn.functional 常F](#torchnnfunctional-常f)
+  - [torch.stack(\[...\])](#torchstack)
+  - [torch.FloatTensor() .fill\_(source\_label)](#torchfloattensor-fill_source_label)
+
+
 ## isinstance() 类型检查 利器
 `num = 10`  
 `result = isinstance(num, int)`  
@@ -46,7 +77,7 @@ step = -1时，start在后，stop在前时才能切片
 `a[-1:-3:-1]`    # [9, 8]
 
 
-# clip_grad_norm_
+## clip_grad_norm_
 ![alt text](image-1.png)
 `...`  
 `loss = crit(...)`  
@@ -55,17 +86,17 @@ step = -1时，start在后，stop在前时才能切片
 `torch.nn.utils.clip_grad_norm_(parameters=model.parameters(), max_norm=10, norm_type=2)`  
 `optimizer.step()`  
 
-# distributedsampler(多卡训练使用，避免数据顺序读取)
+## distributedsampler(多卡训练使用，避免数据顺序读取)
 
-# os.getcwd() 返回当前的工作路径
-# logging.getLogger(参数)
+## os.getcwd() 返回当前的工作路径
+## logging.getLogger(参数)
 ![alt text](image-2.png)
 
-# .modules()
+## .modules()
 ![alt text](image-5.png)
 ![alt text](image-4.png)
 
-# filter lamabda
+## filter lamabda
 这是代码示例，感觉会比较常用
 `trainable_params += [{'params': filter(lambda x: x.requires_grad,`  
                                        `model.backbone.parameters()),`  
@@ -74,24 +105,58 @@ step = -1时，start在后，stop在前时才能切片
 filter(函数，序列)函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表，python返回迭代器
 ![alt text](image-7.png)
 
-# 优化器构建，感觉也会是公式化的
+## 优化器构建，感觉也会是公式化的
 `optimizer = torch.optim.SGD(trainable_params,`  
                             `momentum=cfg.TRAIN.MOMENTUM,`  
                                                                                 `weight_decay=cfg.TRAIN.WEIGHT_DECAY)`  
 ![alt text](image-8.png)
 
-# 不懂的语法 列表+字典+
+## 不懂的语法 列表+字典+
 ![alt text](image-9.png)
 ![alt text](image-10.png)
 https://blog.csdn.net/ljh18885466426/article/details/119357723
 
-# enumerate(iteration, start)
+## enumerate(iteration, start)
 start默认是0
 ![alt text](image-11.png)
 
-# /  //  %
+## /  //  %
 ![alt text](image-12.png)
 
-# state_dict
+## state_dict
 ![alt text](image-13.png)
 https://www.cnblogs.com/peixu/p/13456971.html
+
+## PyTorch内置学习率调度器(lr_scheduler)
+PyTorch学习率调度器 lr_scheduler.step()
+scheduler = ... # 定义学习率调度器
+scheduler.step() # 更新学习率  # 在每个epoch后更新学习率
+![alt text](image-14.png)
+https://zhuanlan.zhihu.com/p/1899093462252520757
+
+## 'string{}'.format()
+{}:占位符，format()中的按顺序占位
+'epoch {} lr {}'.format(epoch+1, pg['lr'])
+eg:
+![alt text](image-15.png)
+## tb_writer.add_scalar()
+### 1.创建TensorBoard写入器
+tb_writer = SummaryWriter(log_dir='runs/experiment_1')
+![alt text](image-16.png)
+
+## nn.Upsample()
+interp = nn.Upsample(size=(128, 128), mode='bilinear', align_corners=True)#上采样
+![alt text](image-17.png)
+
+## torch.nn.functional 常F
+通常写 import torch.nn.functional as F
+![alt text](image-18.png)
+注意这个写法 :[表达式 for 变量 in 可迭代对象],最后返回一个“列表”
+F.softmax(x) for x in arr
+
+## torch.stack([...])
+![alt text](image-19.png)
+## torch.FloatTensor() .fill_(source_label)
+用来创建一个新的浮点数张量（tensor 就是多维数组，可以想象成比 numpy 的 array 更强的矩阵
+.fill_() 是张量的方法，可以把整个张量的所有元素都填充成某个数值。
+_ 结尾的方法表示它是 原地操作（in-place），即直接修改自己，而不是返回新张量。
