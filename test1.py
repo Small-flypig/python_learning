@@ -25,3 +25,8 @@ lst = [10,20,30,40,50,60,70,80]
 #切片为：start=2 , stop=6 , step=1
 lst2 = lst[2:6:2]
 print(lst2)    #[30, 40, 50, 60]
+
+"""enumerate"""
+b = [1,2,3,4,5,6]
+for i  in enumerate(b):
+    print(i)

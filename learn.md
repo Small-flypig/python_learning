@@ -92,3 +92,6 @@ start默认是0
 # /  //  %
 ![alt text](image-12.png)
 
+# state_dict
+![alt text](image-13.png)
+https://www.cnblogs.com/peixu/p/13456971.html
