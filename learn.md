@@ -28,6 +28,9 @@
   - [torch.nn.functional 常F](#torchnnfunctional-常f)
   - [torch.stack(\[...\])](#torchstack)
   - [torch.FloatTensor() .fill\_(source\_label)](#torchfloattensor-fill_source_label)
+  - [nn.DataParallel()](#nndataparallel)
+  - [os.path.realpath(__file__): 获取当前脚本的绝对路径](#ospathrealpathfile-获取当前脚本的绝对路径)
+  - [np.float 弃用了以前的用法](#npfloat-弃用了以前的用法)
 
 
 ## isinstance() 类型检查 利器
@@ -160,3 +163,10 @@ F.softmax(x) for x in arr
 用来创建一个新的浮点数张量（tensor 就是多维数组，可以想象成比 numpy 的 array 更强的矩阵
 .fill_() 是张量的方法，可以把整个张量的所有元素都填充成某个数值。
 _ 结尾的方法表示它是 原地操作（in-place），即直接修改自己，而不是返回新张量。
+
+## nn.DataParallel()
+
+## os.path.realpath(__file__): 获取当前脚本的绝对路径
+
+## np.float 弃用了以前的用法
+![alt text](image-20.png)
