@@ -31,6 +31,12 @@
   - [nn.DataParallel()](#nndataparallel)
   - [os.path.realpath(__file__): 获取当前脚本的绝对路径](#ospathrealpathfile-获取当前脚本的绝对路径)
   - [np.float 弃用了以前的用法](#npfloat-弃用了以前的用法)
+  - [模型不同模式](#模型不同模式)
+  - [python class](#python-class)
+    - [\_\_init\_\_方法](#__init__方法)
+  - [Pytorch保存和加载模型(load和load\_state\_dict)](#pytorch保存和加载模型load和load_state_dict)
+  - [卷积](#卷积)
+    - [池化](#池化)
 
 
 ## isinstance() 类型检查 利器
@@ -170,3 +176,25 @@ _ 结尾的方法表示它是 原地操作（in-place），即直接修改自己
 
 ## np.float 弃用了以前的用法
 ![alt text](image-20.png)
+
+## 模型不同模式
+![alt text](image-21.png)
+![alt text](image-22.png)
+![alt text](image-23.png)
+
+## python class 
+
+![alt text](image-24.png)
+### __init__方法
+![alt text](image-25.png)
+
+## Pytorch保存和加载模型(load和load_state_dict)
+https://blog.csdn.net/leviopku/article/details/123925804
+
+## 卷积
+
+### 池化
+![alt text](image-26.png)
+
+![alt text](image-27.png)
+平均池化具有“平滑”或“模糊”效果，可以减少特征图中的噪声和微小变异，使其变化更加平缓。
