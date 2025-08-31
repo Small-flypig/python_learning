@@ -36,9 +36,13 @@
     - [\_\_init\_\_方法](#__init__方法)
   - [Pytorch保存和加载模型(load和load\_state\_dict)](#pytorch保存和加载模型load和load_state_dict)
   - [卷积](#卷积)
+    - [卷积核](#卷积核)
     - [池化](#池化)
+    - [全局平均池化](#全局平均池化)
+      - [下次采样 常用](#下次采样-常用)
   - [torch.nn.Conv2d](#torchnnconv2d)
   - [forward](#forward)
+  - [torch.cat()](#torchcat)
 
 
 ## isinstance() 类型检查 利器
@@ -194,13 +198,20 @@ _ 结尾的方法表示它是 原地操作（in-place），即直接修改自己
 https://blog.csdn.net/leviopku/article/details/123925804
 
 ## 卷积 
-卷积核一般为奇数的正方形，一般为3*3、5*5
+### 卷积核
+卷积核一般为奇数的正方形，一般为3*3、5*5、
+![alt text](image-32.png)
+
 ### 池化
 ![alt text](image-26.png)
 
 ![alt text](image-27.png)
 平均池化具有“平滑”或“模糊”效果，可以减少特征图中的噪声和微小变异，使其变化更加平缓。
+### 全局平均池化
+![alt text](image-31.png)
 
+#### 下次采样 常用
+![alt text](image-29.png)
 ## torch.nn.Conv2d
 ![alt text](image-28.png)
 
@@ -208,3 +219,9 @@ https://blog.csdn.net/leviopku/article/details/123925804
 这个函数是神经网络中用来向前传播的函数，即网络正常向前怎么运行用这个函数控制
 在调用的时候不需要写T.forward(6)，直接写T(6)会默认调用forward的方法。
 注意要使用import torch.nn as nn
+
+## torch.cat()
+
+![alt text](image-30.png)
+
+
