@@ -39,7 +39,8 @@
     - [卷积核](#卷积核)
     - [池化](#池化)
     - [全局平均池化](#全局平均池化)
-      - [下次采样 常用](#下次采样-常用)
+      - [下采样 常用](#下采样-常用)
+    - [反卷积](#反卷积)
   - [torch.nn.Conv2d](#torchnnconv2d)
   - [forward](#forward)
   - [torch.cat()](#torchcat)
@@ -210,8 +211,10 @@ https://blog.csdn.net/leviopku/article/details/123925804
 ### 全局平均池化
 ![alt text](image-31.png)
 
-#### 下次采样 常用
+#### 下采样 常用
 ![alt text](image-29.png)
+### 反卷积
+
 ## torch.nn.Conv2d
 ![alt text](image-28.png)
 
