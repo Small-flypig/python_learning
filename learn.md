@@ -44,6 +44,7 @@
   - [torch.nn.Conv2d](#torchnnconv2d)
   - [forward](#forward)
   - [torch.cat()](#torchcat)
+  - [激活函数](#激活函数)
 
 
 ## isinstance() 类型检查 利器
@@ -226,5 +227,10 @@ https://blog.csdn.net/leviopku/article/details/123925804
 ## torch.cat()
 
 ![alt text](image-30.png)
+
+## 激活函数
+包含有 Sigmod softmax 
+![alt text](image-33.png)
+https://blog.csdn.net/dfly_zx/article/details/104493048
 
 
