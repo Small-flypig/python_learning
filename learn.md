@@ -45,6 +45,10 @@
   - [forward](#forward)
   - [torch.cat()](#torchcat)
   - [激活函数](#激活函数)
+  - [object](#object)
+  - [__call__()](#call)
+  - [F.normalize() torch.nn.functional.normalize()](#fnormalize-torchnnfunctionalnormalize)
+  - [F.normalize() from torchvision.transforms import functional as F](#fnormalize-from-torchvisiontransforms-import-functional-as-f)
 
 
 ## isinstance() 类型检查 利器
@@ -232,5 +236,23 @@ https://blog.csdn.net/leviopku/article/details/123925804
 包含有 Sigmod softmax 
 ![alt text](image-33.png)
 https://blog.csdn.net/dfly_zx/article/details/104493048
+
+## object
+
+## __call__()
+class的入口 调用实例对象都会先进入这个函数
+如果省略，很可能是继承了父类的该函数，一般可能会在其中调用forward()
+
+## F.normalize() torch.nn.functional.normalize()
+torch.nn.functional.normalize(input, p=2.0, dim=1, eps=1e-12, out=None)
+![alt text](image-35.png)
+input就是进行归一化的对象,一般将数据限制到0-1之间
+一维的时候 整体一组
+二维的时候  dim=0 一列为一组  dim=1 一行为一组
+
+## F.normalize() from torchvision.transforms import functional as F 
+与上面的函数区分，两个库的同名函数
+![alt text](image-34.png)
+![alt text](image-36.png)
 
 
