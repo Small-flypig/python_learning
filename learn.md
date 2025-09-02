@@ -34,6 +34,7 @@
   - [模型不同模式](#模型不同模式)
   - [python class](#python-class)
     - [\_\_init\_\_方法](#__init__方法)
+    - [/\_/_call_\_()](#_call_)
   - [Pytorch保存和加载模型(load和load\_state\_dict)](#pytorch保存和加载模型load和load_state_dict)
   - [卷积](#卷积)
     - [卷积核](#卷积核)
@@ -46,9 +47,9 @@
   - [torch.cat()](#torchcat)
   - [激活函数](#激活函数)
   - [object](#object)
-  - [__call__()](#call)
   - [F.normalize() torch.nn.functional.normalize()](#fnormalize-torchnnfunctionalnormalize)
   - [F.normalize() from torchvision.transforms import functional as F](#fnormalize-from-torchvisiontransforms-import-functional-as-f)
+  - [Python中\[-1\]、\[:-1\]、\[::-1\]、\[n::-1\]、\[:,:,0\]、\[…,0\]、\[…,::-1\] 的理解](#python中-1-1-1n-100-1-的理解)
 
 
 ## isinstance() 类型检查 利器
@@ -200,6 +201,10 @@ _ 结尾的方法表示它是 原地操作（in-place），即直接修改自己
 ### __init__方法
 ![alt text](image-25.png)
 
+###  /_/_call__()
+class的入口 调用实例对象都会先进入这个函数
+如果省略，很可能是继承了父类的该函数，一般可能会在其中调用forward()
+
 ## Pytorch保存和加载模型(load和load_state_dict)
 https://blog.csdn.net/leviopku/article/details/123925804
 
@@ -239,9 +244,6 @@ https://blog.csdn.net/dfly_zx/article/details/104493048
 
 ## object
 
-## __call__()
-class的入口 调用实例对象都会先进入这个函数
-如果省略，很可能是继承了父类的该函数，一般可能会在其中调用forward()
 
 ## F.normalize() torch.nn.functional.normalize()
 torch.nn.functional.normalize(input, p=2.0, dim=1, eps=1e-12, out=None)
@@ -256,3 +258,6 @@ input就是进行归一化的对象,一般将数据限制到0-1之间
 ![alt text](image-36.png)
 
 
+## Python中[-1]、[:-1]、[::-1]、[n::-1]、[:,:,0]、[…,0]、[…,::-1] 的理解
+
+https://blog.csdn.net/weixin_44350337/article/details/116034510

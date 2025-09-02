@@ -30,3 +30,8 @@ print(lst2)    #[30, 40, 50, 60]
 b = [1,2,3,4,5,6]
 for i  in enumerate(b):
     print(i)
+
+x={1,2,3}
+x=[x];
+if isinstance(x,list):
+    print("true")
