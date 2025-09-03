@@ -42,6 +42,8 @@
     - [全局平均池化](#全局平均池化)
       - [下采样 常用](#下采样-常用)
     - [反卷积](#反卷积)
+    - [膨胀卷积](#膨胀卷积)
+    - [深度可分离卷积](#深度可分离卷积)
   - [torch.nn.Conv2d](#torchnnconv2d)
   - [forward](#forward)
   - [torch.cat()](#torchcat)
@@ -50,6 +52,7 @@
   - [F.normalize() torch.nn.functional.normalize()](#fnormalize-torchnnfunctionalnormalize)
   - [F.normalize() from torchvision.transforms import functional as F](#fnormalize-from-torchvisiontransforms-import-functional-as-f)
   - [Python中\[-1\]、\[:-1\]、\[::-1\]、\[n::-1\]、\[:,:,0\]、\[…,0\]、\[…,::-1\] 的理解](#python中-1-1-1n-100-1-的理解)
+  - [super()](#super)
 
 
 ## isinstance() 类型检查 利器
@@ -225,6 +228,10 @@ https://blog.csdn.net/leviopku/article/details/123925804
 ![alt text](image-29.png)
 ### 反卷积
 
+### 膨胀卷积
+![alt text](image-37.png)
+### 深度可分离卷积
+![alt text](image-38.png)
 ## torch.nn.Conv2d
 ![alt text](image-28.png)
 
@@ -261,3 +268,8 @@ input就是进行归一化的对象,一般将数据限制到0-1之间
 ## Python中[-1]、[:-1]、[::-1]、[n::-1]、[:,:,0]、[…,0]、[…,::-1] 的理解
 
 https://blog.csdn.net/weixin_44350337/article/details/116034510
+
+## super()
+调用父类的一个方法，常用于初始化
+super(子类, self).__init__()
+super(VideoModel, self).__init__()
