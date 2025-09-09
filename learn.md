@@ -34,7 +34,7 @@
   - [模型不同模式](#模型不同模式)
   - [python class](#python-class)
     - [\_\_init\_\_方法](#__init__方法)
-    - [/\_/_call_\_()](#_call_)
+    - [__call__()](#call)
   - [Pytorch保存和加载模型(load和load\_state\_dict)](#pytorch保存和加载模型load和load_state_dict)
   - [卷积](#卷积)
     - [卷积核](#卷积核)
@@ -53,6 +53,13 @@
   - [F.normalize() from torchvision.transforms import functional as F](#fnormalize-from-torchvisiontransforms-import-functional-as-f)
   - [Python中\[-1\]、\[:-1\]、\[::-1\]、\[n::-1\]、\[:,:,0\]、\[…,0\]、\[…,::-1\] 的理解](#python中-1-1-1n-100-1-的理解)
   - [super()](#super)
+  - [dict](#dict)
+    - [字典删除 键值对删除](#字典删除-键值对删除)
+    - [检测键 Age 是否存在](#检测键-age-是否存在)
+  - [zip(labels, preds) enumerate(zip(labels, preds))](#ziplabels-preds-enumerateziplabels-preds)
+  - [nn.Sequential(\*bbox\_tower)](#nnsequentialbbox_tower)
+  - [self.add\_module(name,网络)](#selfadd_modulename网络)
+  - [网络初始化](#网络初始化)
 
 
 ## isinstance() 类型检查 利器
@@ -204,7 +211,7 @@ _ 结尾的方法表示它是 原地操作（in-place），即直接修改自己
 ### __init__方法
 ![alt text](image-25.png)
 
-###  /_/_call__()
+###  __call__()
 class的入口 调用实例对象都会先进入这个函数
 如果省略，很可能是继承了父类的该函数，一般可能会在其中调用forward()
 
@@ -273,3 +280,38 @@ https://blog.csdn.net/weixin_44350337/article/details/116034510
 调用父类的一个方法，常用于初始化
 super(子类, self).__init__()
 super(VideoModel, self).__init__()
+
+## dict
+字典，创建空字典 v=dict()
+常见定义 {key:value} {键:值}
+d1 = {key1 : value1, key2 : value2, key3 : value3 }
+字典查找
+1. d1[key1]
+2. d1.get(key1)  d1.get(key1,-1)#当查找不到的时候返回-1
+注意：字典无法修改key，只能修改value
+### 字典删除 键值对删除
+不返回元素值
+![alt text](image-51.png)
+返回元素值
+![alt text](image-50.png)
+### 检测键 Age 是否存在
+if 'Age' in thisdict:
+    print("键 Age 存在")
+else:
+    print("键 Age 不存在")
+
+https://blog.csdn.net/2301_77531118/article/details/145524084
+![alt text](image-52.png)
+## zip(labels, preds) enumerate(zip(labels, preds))
+![alt text](image-53.png)
+## nn.Sequential(*bbox_tower)
+使其生成一个堆叠网络，
+![alt text](image-55.png)
+![alt text](image-56.png)
+
+## self.add_module(name,网络)
+self.add_module('cls_tower', nn.Sequential(*cls_tower))
+
+## 网络初始化
+torch.nn.init.normal_(l.weight, std=0.01)  # 权重正态初始化  
+torch.nn.init.constant_(l.bias, 0)         # 偏置初始化为0

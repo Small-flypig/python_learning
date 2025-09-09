@@ -53,3 +53,5 @@ print(a)
 a=torch.tensor([1,2,3,4,8])
 b=torch.tensor([3,2,1,4,5])
 print(a*b)
+## 字典
+dict={'name':'xiaozhang','age':23,2:1}
