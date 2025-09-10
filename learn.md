@@ -18,7 +18,7 @@
   - [优化器构建，感觉也会是公式化的](#优化器构建感觉也会是公式化的)
   - [不懂的语法 列表+字典+](#不懂的语法-列表字典)
   - [enumerate(iteration, start)](#enumerateiteration-start)
-  - [/  //  %](#----)
+  - [/  //  % @](#-----)
   - [state\_dict](#state_dict)
   - [PyTorch内置学习率调度器(lr\_scheduler)](#pytorch内置学习率调度器lr_scheduler)
   - ['string{}'.format()](#stringformat)
@@ -60,6 +60,13 @@
   - [nn.Sequential(\*bbox\_tower)](#nnsequentialbbox_tower)
   - [self.add\_module(name,网络)](#selfadd_modulename网络)
   - [网络初始化](#网络初始化)
+  - [torch.nn.init 初始化](#torchnninit-初始化)
+  - [nn.BatchNorm2d() 实现标准化](#nnbatchnorm2d-实现标准化)
+  - [tensor.permute(dim0, dim1, dim2)](#tensorpermutedim0-dim1-dim2)
+  - [tensor.unsqueeze(dim)](#tensorunsqueezedim)
+  - [tensor.repeat(\*sizes)](#tensorrepeatsizes)
+  - [torch.view()](#torchview)
+    - [(pos + x\_f).view(b, c, -1)](#pos--x_fviewb-c--1)
 
 
 ## isinstance() 类型检查 利器
@@ -152,9 +159,9 @@ https://blog.csdn.net/ljh18885466426/article/details/119357723
 start默认是0
 ![alt text](image-11.png)
 
-## /  //  %
+## /  //  % @
 ![alt text](image-12.png)
-
+@ 矩阵乘法符号
 ## state_dict
 ![alt text](image-13.png)
 https://www.cnblogs.com/peixu/p/13456971.html
@@ -315,3 +322,40 @@ self.add_module('cls_tower', nn.Sequential(*cls_tower))
 ## 网络初始化
 torch.nn.init.normal_(l.weight, std=0.01)  # 权重正态初始化  
 torch.nn.init.constant_(l.bias, 0)         # 偏置初始化为0
+
+## torch.nn.init 初始化
+网络常用的初始化方法 正态分布 常数 均匀分布
+![alt text](image-54.png)
+
+![alt text](image-57.png)
+
+![alt text](image-58.png)
+
+## nn.BatchNorm2d() 实现标准化
+![alt text](image-66.png)
+![alt text](image-67.png)
+
+## tensor.permute(dim0, dim1, dim2)
+按照新的维度顺序重排
+
+## tensor.unsqueeze(dim)
+增加一维新的维度，dim表示增加在第几维度
+
+## tensor.repeat(*sizes)
+重复数据，参数为每个维度重复的数量
+![alt text](image-68.png)
+
+## torch.view()
+实现形状重排的功能  
+view(3, 2)将张量重构成了3x2维的张量。  
+![alt text](image-69.png)
+view(-1) 将张量重构成了1维的张量。  
+view(-1, 参数b) 列数已知，行位置，按每列b个去排列
+
+### (pos + x_f).view(b, c, -1)
+输入: [batch_size, 256, h, w]  
+输出: [batch_size, 256, h*w]  
+实现的效果就是保留前两维度的信息 然后后面几个维度一维展开
+
+
+
