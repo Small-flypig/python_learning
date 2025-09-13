@@ -45,6 +45,7 @@
     - [膨胀卷积](#膨胀卷积)
     - [深度可分离卷积](#深度可分离卷积)
   - [torch.nn.Conv2d](#torchnnconv2d)
+  - [torch.nn.functional.conv2d](#torchnnfunctionalconv2d)
   - [forward](#forward)
   - [torch.cat()](#torchcat)
   - [激活函数](#激活函数)
@@ -67,6 +68,12 @@
   - [tensor.repeat(\*sizes)](#tensorrepeatsizes)
   - [torch.view()](#torchview)
     - [(pos + x\_f).view(b, c, -1)](#pos--x_fviewb-c--1)
+  - [nn.LayerNorm(dim)](#nnlayernormdim)
+  - [torch.nn.init.trunc\_normal\_(tensor, mean=0.0, std=1.0, a=- 2.0, b=2.0)](#torchnninittrunc_normal_tensor-mean00-std10-a--20-b20)
+  - [self.apply(fn)](#selfapplyfn)
+  - [ModuleList和Sequential](#modulelist和sequential)
+  - [\_get\_clones()](#_get_clones)
+  - [abc.contiguous()](#abccontiguous)
 
 
 ## isinstance() 类型检查 利器
@@ -249,6 +256,11 @@ https://blog.csdn.net/leviopku/article/details/123925804
 ## torch.nn.Conv2d
 ![alt text](image-28.png)
 
+## torch.nn.functional.conv2d
+注意与上面的卷积函数做区分，两个卷积不一样
+![alt text](image-73.png)
+![alt text](image-74.png)
+
 ## forward
 这个函数是神经网络中用来向前传播的函数，即网络正常向前怎么运行用这个函数控制
 在调用的时候不需要写T.forward(6)，直接写T(6)会默认调用forward的方法。
@@ -357,5 +369,25 @@ view(-1, 参数b) 列数已知，行位置，按每列b个去排列
 输出: [batch_size, 256, h*w]  
 实现的效果就是保留前两维度的信息 然后后面几个维度一维展开
 
+## nn.LayerNorm(dim)
+![alt text](image-70.png)
+## torch.nn.init.trunc_normal_(tensor, mean=0.0, std=1.0, a=- 2.0, b=2.0)
+![alt text](image-71.png)
+## self.apply(fn)
+将fn这个函数递归的应用到子模块中
 
+## ModuleList和Sequential
+nn.Sequential 是一个顺序容器。模块将按照它们在传入序列中的顺序被自动、顺序地执行。会生成一个自己的forward()函数，相当于生成一个堆叠式的网络。  
+ModuleList 是一个将子模块存储在列表中的容器。它本身不是一个可执行的模块，也就是这里面的网络没有forward() 我只是放在里面，怎么去运行，什么顺序运行要自己去设计。
+
+
+
+## _get_clones()
+这虽然不是标准库 但是是DETR中transformer用的函数。  
+DETR就是transformer实现目标检测的库
+`def _get_clones(module, N):`
+`    return ModuleList([copy.deepcopy(module) for i in range(N)])`
+
+## abc.contiguous()
+![alt text](image-72.png)
 
