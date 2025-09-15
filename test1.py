@@ -37,3 +37,31 @@ if isinstance(x,list):
     print("true")
 
 
+
+
+
+import torch
+import debugpy
+debugpy.listen(5779)
+print('wait debugger')
+debugpy.wait_for_client()
+print("Debugger Attached")
+def compute_locations_per_level(h, w, stride):
+    shifts_x = torch.arange(  #从0-》w*stride ,步长为step的数组
+        0, w * stride, step=stride,# w * stride
+        dtype=torch.float32
+    )
+    shifts_y = torch.arange(
+        0, h * stride, step=stride,
+        dtype=torch.float32
+    )
+    shift_y, shift_x = torch.meshgrid((shifts_y, shifts_x))#建立网格
+    shift_x = shift_x.reshape(-1)#每列相同  变成一维
+    shift_y = shift_y.reshape(-1)#每行相同
+    # locations = torch.stack((shift_x, shift_y), dim=1) + stride + 3*stride  # (size_z-1)/2*size_z 28
+    # locations = torch.stack((shift_x, shift_y), dim=1) + stride
+    locations = torch.stack((shift_x, shift_y), dim=1) + 32  #alex:48 // 32
+    return locations
+
+
+compute_locations_per_level(5,5,1,)

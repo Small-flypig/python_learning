@@ -74,6 +74,9 @@
   - [ModuleList和Sequential](#modulelist和sequential)
   - [\_get\_clones()](#_get_clones)
   - [abc.contiguous()](#abccontiguous)
+  - [reshape()](#reshape)
+  - [view\_as()](#view_as)
+  - [.flatten(2)](#flatten2)
 
 
 ## isinstance() 类型检查 利器
@@ -294,6 +297,9 @@ input就是进行归一化的对象,一般将数据限制到0-1之间
 ## Python中[-1]、[:-1]、[::-1]、[n::-1]、[:,:,0]、[…,0]、[…,::-1] 的理解
 
 https://blog.csdn.net/weixin_44350337/article/details/116034510
+![alt text](image-76.png)
+![alt text](image-75.png)
+
 
 ## super()
 调用父类的一个方法，常用于初始化
@@ -391,3 +397,16 @@ DETR就是transformer实现目标检测的库
 ## abc.contiguous()
 ![alt text](image-72.png)
 
+
+## reshape()
+
+a.reshape(-1) 将数据展平成一维  
+a.reshape(2,3) 变形成三行四列  
+a.reshape(-1,1) 展平成一列，不过是个二维的，只是二维的中只有一组数据   
+a.reshape(1,-1) 展平成一行，不过是个二维的，只是二维的中只有一组数据   
+
+## view_as()
+![alt text](image-77.png)
+
+## .flatten(2)
+展平， 从第2维开始展平 
