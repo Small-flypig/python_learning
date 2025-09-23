@@ -77,6 +77,9 @@
   - [reshape()](#reshape)
   - [view\_as()](#view_as)
   - [.flatten(2)](#flatten2)
+  - [cfg.merge\_from\_file(args.config)](#cfgmerge_from_fileargsconfig)
+  - [numpy.hanning()](#numpyhanning)
+  - [isfile(os.getcwd() + os.path.join('/results', args.dataset, model\_name, '{}.txt'.format(video.name))):](#isfileosgetcwd--ospathjoinresults-argsdataset-model_name-txtformatvideoname)
 
 
 ## isinstance() 类型检查 利器
@@ -410,3 +413,19 @@ a.reshape(1,-1) 展平成一行，不过是个二维的，只是二维的中只�
 
 ## .flatten(2)
 展平， 从第2维开始展平 
+
+## cfg.merge_from_file(args.config)
+cfg.merge_from_file是一个函数，用于将一个配置文件中的参数合并到当前的配置中。具体来说，它会读取指定的配置文件，将其中的参
+数与当前配置中的同名参数进行合并，如果有冲突则以配置文件中的参数为准。
+
+## numpy.hanning()
+这是numpy库中比较常见的函数，它生成余弦窗函数或者高斯函数，用于过滤或者突出某个物体。
+通常后面接numpy.outer  得到一个类似钟形矩阵
+![alt text](image-79.png)
+
+##  isfile(os.getcwd() + os.path.join('/results', args.dataset, model_name, '{}.txt'.format(video.name))):
+这个代码解析，这个用来判断文件是否存在
+'{}.txt'.format(video.name)是一个格式转换，生成一个字符串文件名  'xx.txt'  
+os.path.join() 起一个拼接路径的作用  
+os.getcwd()获取当前的工作目录，可能是当前环境的绝对路径  
+isfile()判断该路径文件是否存在  
