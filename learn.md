@@ -80,6 +80,7 @@
   - [cfg.merge\_from\_file(args.config)](#cfgmerge_from_fileargsconfig)
   - [numpy.hanning()](#numpyhanning)
   - [isfile(os.getcwd() + os.path.join('/results', args.dataset, model\_name, '{}.txt'.format(video.name))):](#isfileosgetcwd--ospathjoinresults-argsdataset-model_name-txtformatvideoname)
+  - [torch.split()](#torchsplit)
 
 
 ## isinstance() 类型检查 利器
@@ -429,3 +430,13 @@ cfg.merge_from_file是一个函数，用于将一个配置文件中的参数合�
 os.path.join() 起一个拼接路径的作用  
 os.getcwd()获取当前的工作目录，可能是当前环境的绝对路径  
 isfile()判断该路径文件是否存在  
+
+## torch.split()
+
+x = torch.rand(4,8,6)
+y = torch.split(x,2,dim=0) #按照4这个维度第0维去分，每大块包含2个小块
+for i in y :
+    print(i.size())
+ 
+output:
+torch.Size([2, 8, 6])
