@@ -362,7 +362,7 @@ torch.nn.init.constant_(l.bias, 0)         # 偏置初始化为0
 
 ## tensor.unsqueeze(dim)
 增加一维新的维度，dim表示增加在第几维度
-
+tensor.squeeze() 删除所有维度为1的维度
 ## tensor.repeat(*sizes)
 重复数据，参数为每个维度重复的数量
 ![alt text](image-68.png)
