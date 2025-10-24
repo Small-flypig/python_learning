@@ -81,6 +81,11 @@
   - [numpy.hanning()](#numpyhanning)
   - [isfile(os.getcwd() + os.path.join('/results', args.dataset, model\_name, '{}.txt'.format(video.name))):](#isfileosgetcwd--ospathjoinresults-argsdataset-model_name-txtformatvideoname)
   - [torch.split()](#torchsplit)
+  - [\*args \*\*kwargs](#args-kwargs)
+  - [优化器 torch.optim.SGD(model.parameters(),lr=0.01)](#优化器-torchoptimsgdmodelparameterslr001)
+  - [enhanced = enhanced\[:,:,:h,:w\]](#enhanced--enhancedhw)
+  - [不同的归一化层](#不同的归一化层)
+    - [BN 批归一化](#bn-批归一化)
 
 
 ## isinstance() 类型检查 利器
@@ -440,3 +445,25 @@ for i in y :
  
 output:
 torch.Size([2, 8, 6])
+
+## *args **kwargs
+*args 相当于一个可变长元组，具体看传入多少，这个传入非默认的参数  
+**相当于一个可变长字典，他传入的是有具体指向的参数
+eg: 
+def func(*args,**kwargs)  
+
+func(1,2,3,x=4,y=5)  
+调用得到的就是*args=(1,2,3) **kwargs={'x':4,'y':5}  
+![alt text](image-96.png)
+
+## 优化器 torch.optim.SGD(model.parameters(),lr=0.01)
+model.parameters()是module的内置函数，会查找模型中所有的参数，递归查找
+![alt text](image-97.png)
+
+## enhanced = enhanced[:,:,:h,:w]
+这行代码实现的效果是张量裁剪
+这里裁剪的效果是前两个维度不变，后两个维度裁剪为h,w。裁剪的位置应该是右下角
+
+## 不同的归一化层 
+### BN 批归一化 
+BN跨样本、单通道

@@ -26,3 +26,13 @@ class Positionalembedding(nn.Module):
         pos=torch.arange(0,max_len,device=device)
         
 
+
+
+"""
+pytorch 实现线性回归
+"""
+import torch
+x_data = torch.Tensor([[1.0],[2.0],[3.0]])
+y_data = torch.Tensor([[2.0],[4.0],[6.0]])
+
+

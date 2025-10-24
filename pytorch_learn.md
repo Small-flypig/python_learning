@@ -48,3 +48,22 @@ torch中如何使用
 这里要直接用标量进行操作，因为如果用tensor进行操作容易生成计算图，就类似往后又接了网络，这肯定是错误的。
 ![alt text](image-94.png)
 这里在一次运算后还需要对梯度进行清零，不然会梯度累加，除非特意设计
+### torch.nn.Linear
+![alt text](image-95.png)
+
+## 
+## *args **kwargs
+*args 相当于一个可变长元组，具体看传入多少，这个传入非默认的参数  
+**相当于一个可变长字典，他传入的是有具体指向的参数
+eg: 
+def func(*args,**kwargs)  
+
+func(1,2,3,x=4,y=5)  
+调用得到的就是*args=(1,2,3) **kwargs={'x':4,'y':5}  
+![alt text](image-96.png)
+
+## 优化器 torch.optim.SGD(model.parameters(),lr=0.01)
+model.parameters()是module的内置函数，会查找模型中所有的参数，递归查找
+![alt text](image-97.png)
+
+ 
