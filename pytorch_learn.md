@@ -66,4 +66,10 @@ func(1,2,3,x=4,y=5)
 model.parameters()是module的内置函数，会查找模型中所有的参数，递归查找
 ![alt text](image-97.png)
 
- 
+ ## Gumbel-Softmax
+https://blog.csdn.net/wwl412095144/article/details/148138256
+
+## 交叉注意力机制，不同 Q K V 做输入的理解
+![alt text](image-107.png)
+
+![alt text](image-108.png)
