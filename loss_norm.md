@@ -1,16 +1,4 @@
-# 总结论文中遇到的损失函数
 
-## focal loss
-Focal Loss处理正负极样本不平衡
-![alt text](image-81.png)
-![alt text](image-80.png)
-
-## GIoU loss
-IoU的一个改进版本，使用了两个框的并矩形框，效果会更好一些
-https://blog.csdn.net/weixin_45377629/article/details/124915296
-
-
-## 空间一致性损失 Lspa
 - [总结论文中遇到的损失函数](#总结论文中遇到的损失函数)
   - [focal loss](#focal-loss)
   - [GIoU loss](#giou-loss)
@@ -31,7 +19,21 @@ https://blog.csdn.net/weixin_45377629/article/details/124915296
   - [SiLU 激活函数(Swish 激活函数)](#silu-激活函数swish-激活函数)
   - [gelu](#gelu)
 
+# 总结论文中遇到的损失函数
+https://www.cnblogs.com/Aegsteh/p/15805861.html
+https://blog.csdn.net/m0_46366547/article/details/137337592
+## focal loss
+Focal Loss处理正负极样本不平衡
+![alt text](image-81.png)
+![alt text](image-80.png)
 
+## GIoU loss
+IoU的一个改进版本，使用了两个框的并矩形框，效果会更好一些
+https://blog.csdn.net/weixin_45377629/article/details/124915296
+
+
+## 空间一致性损失 Lspa
+就是说在增强前两块之间的亮度差应该和增强之后保持差不多。
 ![alt text](image-82.png)
 
 ## Ltv — Illumination Smoothness Loss 照明平滑度损失
