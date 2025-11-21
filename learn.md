@@ -87,6 +87,7 @@
   - [不同的归一化层](#不同的归一化层)
     - [BN 批归一化](#bn-批归一化)
   - [round()](#round)
+  - [torch.mean(x, dim=0,, keepdim=True)](#torchmeanx-dim0-keepdimtrue)
 
 
 ## isinstance() 类型检查 利器
@@ -471,3 +472,5 @@ BN跨样本、单通道
 
 ## round()
 ![alt text](image-106.png)
+## torch.mean(x, dim=0,, keepdim=True)
+按照第0维计算平均值，并保持维度不变，这里保持维度不变应该原本是4维还是4维，只不过有一个维度只有一个值，类似数组有一个元素

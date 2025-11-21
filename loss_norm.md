@@ -2,6 +2,7 @@
 - [总结论文中遇到的损失函数](#总结论文中遇到的损失函数)
   - [focal loss](#focal-loss)
   - [GIoU loss](#giou-loss)
+  - [曝光损失 Lexp](#曝光损失-lexp)
   - [空间一致性损失 Lspa](#空间一致性损失-lspa)
   - [Ltv — Illumination Smoothness Loss 照明平滑度损失](#ltv--illumination-smoothness-loss-照明平滑度损失)
   - [交叉熵](#交叉熵)
@@ -31,6 +32,9 @@ Focal Loss处理正负极样本不平衡
 IoU的一个改进版本，使用了两个框的并矩形框，效果会更好一些
 https://blog.csdn.net/weixin_45377629/article/details/124915296
 
+
+## 曝光损失 Lexp
+![alt text](image-109.png)
 
 ## 空间一致性损失 Lspa
 就是说在增强前两块之间的亮度差应该和增强之后保持差不多。
